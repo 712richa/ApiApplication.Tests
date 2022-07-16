@@ -21,14 +21,14 @@ namespace ApiApplication.Tests.Features
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Reset the test data")]
-    [NUnit.Framework.CategoryAttribute("Reset")]
+    [NUnit.Framework.CategoryAttribute("ResetTestData")]
     public partial class ResetTheTestDataFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private static string[] featureTags = new string[] {
-                "Reset"};
+                "ResetTestData"};
         
 #line 1 "Reset.feature"
 #line hidden
