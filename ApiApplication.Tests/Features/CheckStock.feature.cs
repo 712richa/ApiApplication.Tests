@@ -76,10 +76,15 @@ namespace ApiApplication.Tests.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify stock is up to date when you order a fuel")]
-        public void VerifyStockIsUpToDateWhenYouOrderAFuel()
+        [NUnit.Framework.TestCaseAttribute("gas", "1", null)]
+        [NUnit.Framework.TestCaseAttribute("elec", "3", null)]
+        [NUnit.Framework.TestCaseAttribute("oil", "4", null)]
+        public void VerifyStockIsUpToDateWhenYouOrderAFuel(string energyType, string quantity, string[] exampleTags)
         {
-            string[] tagsOfScenario = ((string[])(null));
+            string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("EnergyType", energyType);
+            argumentsOfScenario.Add("Quantity", quantity);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify stock is up to date when you order a fuel", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 7
 this.ScenarioInitialize(scenarioInfo);
@@ -101,7 +106,7 @@ testRunner.And("I hit reset endpoint with authorised token", ((string)(null)), (
 testRunner.And("I check the energy stock", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
-testRunner.When("When I buy oil for 1 unit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When(string.Format("When I buy {0} for {1} unit", energyType, quantity), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
 testRunner.Then("it should display upto date stock", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -117,7 +122,7 @@ testRunner.Then("it should display upto date stock", ((string)(null)), ((TechTal
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify stock is up to date when fuel is unavailable", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 15
+#line 19
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -127,19 +132,19 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 16
+#line 20
 testRunner.Given("I am an \'authorised\' user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 17
+#line 21
 testRunner.And("I hit reset endpoint with authorised token", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 18
+#line 22
 testRunner.And("I check the energy stock", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 19
+#line 23
 testRunner.When("When I buy nuclear for 1 unit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 20
+#line 24
 testRunner.Then("it should display no changes in stock", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

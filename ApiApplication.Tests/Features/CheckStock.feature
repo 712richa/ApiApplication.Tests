@@ -4,13 +4,17 @@
         when it's unavailable.
 
 
-Scenario: Verify stock is up to date when you order a fuel
+Scenario Outline: Verify stock is up to date when you order a fuel
 Given I am an 'authorised' user
 And I hit reset endpoint with authorised token
 And I check the energy stock
-When When I buy oil for 1 unit
+When When I buy <EnergyType> for <Quantity> unit
 Then it should display upto date stock
-
+Examples: 
+|EnergyType	|Quantity|
+|gas		|1		|
+|elec		|3		|
+|oil		|4		|
 
 Scenario: Verify stock is up to date when fuel is unavailable
 Given I am an 'authorised' user
