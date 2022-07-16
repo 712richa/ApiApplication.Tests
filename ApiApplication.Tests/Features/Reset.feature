@@ -1,4 +1,4 @@
-﻿@Reset
+﻿@ResetTestData
 Feature: Reset the test data
         As a user I want to reset test data
         So that I can buy more energy

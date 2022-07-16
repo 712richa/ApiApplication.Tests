@@ -1,8 +1,9 @@
-﻿Feature: Login
+﻿@Login
+Feature: Login
 	As a User I want to verify
 	login functionality work
 
-@Login
+
 Scenario: Login with correct credentials
 	When User logged in as 'authorised' user
 	Then User should get 'success' login

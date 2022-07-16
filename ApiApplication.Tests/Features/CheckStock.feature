@@ -1,4 +1,5 @@
-﻿Feature: CheckStock
+﻿@Stock
+Feature: CheckStock
         As a user I want to make sure when I order energy
         my stock is getting updated so I can inform customer
         when it's unavailable.
