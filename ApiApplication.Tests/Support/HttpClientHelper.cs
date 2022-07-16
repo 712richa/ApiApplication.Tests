@@ -22,6 +22,14 @@ namespace ApiApplication.Tests.Support
             return response;
         }
 
+        public async Task<HttpResponseMessage> GetEnergyAsync()
+        {
+           // _context.client.DefaultRequestHeaders.Add("Authorization", $"Bearer {_context.authToken}");
+            var response = await _context.client.GetAsync("/energy");
+            _context.httpGetEnergyResponse = response;
+            return response;
+        }
+
         public async Task<HttpResponseMessage> BuyEnergyAsync(int energyType, int quantity)
         {
             var request = new BuyEnergyRequest
@@ -29,6 +37,8 @@ namespace ApiApplication.Tests.Support
                 EnergyType = energyType,
                 Quantity = quantity
             };
+            //Console.WriteLine($"Auth Token: {_context.authToken}");
+            _context.client.DefaultRequestHeaders.Clear();
             _context.client.DefaultRequestHeaders.Add("Authorization", $"Bearer {_context.authToken}");
             _context.httpBuyEnergyResponse = await _context.client.PutAsync($"/buy/{energyType}/{quantity}", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
 

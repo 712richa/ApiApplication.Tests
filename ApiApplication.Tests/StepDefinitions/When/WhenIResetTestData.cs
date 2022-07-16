@@ -15,6 +15,7 @@ namespace ApiApplication.Tests.StepDefinitions.When
             _httpClientHelper = new HttpClientHelper( _context);
         }
 
+        [Given(@"I hit reset endpoint with authorised token")]
         [When(@"I hit reset endpoint with authorised token")]
         public async Task WhenIHitResetEndpoint()
         {
@@ -34,7 +35,5 @@ namespace ApiApplication.Tests.StepDefinitions.When
         {
             await _httpClientHelper.ResetTestDataWithUnauthorisedUserAsync();
         }
-
-
     }
 }

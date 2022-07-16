@@ -37,6 +37,12 @@ namespace ApiApplication.Tests
             set => Context["httpBuyEnergyResponse"] = value;
         }
 
+        public HttpResponseMessage httpGetEnergyResponse
+        {
+            get => Context.Get<HttpResponseMessage>("httpGetEnergyResponse");
+            set => Context["httpGetEnergyResponse"] = value;
+        }
+
         public string orderId
         {
             get => Context.Get<string>("orderId");
